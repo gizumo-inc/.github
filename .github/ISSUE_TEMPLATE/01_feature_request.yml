@@ -1,0 +1,34 @@
+name: ✨ 機能要望
+description: 新機能や改善の要望を起票する
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🎯 解決したい課題・背景
+      description: どのような課題や不便を解決したいのか記載してください
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 💡 提案する解決策
+      description: どのような機能・改善があればよいか、具体的に記載してください
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 🔀 代替案
+      description: 他に検討した方法があれば記載してください
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: 📎 補足
+      description: 参考リンク、スクリーンショットなどがあれば記載してください
+    validations:
+      required: false
