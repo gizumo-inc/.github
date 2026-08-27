@@ -1,0 +1,41 @@
+name: 🔧 開発タスク
+description: 機能追加や修正ではない、リファクタ・依存関係更新・技術的負債の解消など開発者向けのタスクを起票する
+title: "[Chore] "
+labels:
+  - chore
+body:
+  - type: textarea
+    id: background
+    attributes:
+      label: 🎯 背景・目的
+      description: なぜこの対応が必要か、現状の課題（技術的負債、保守性、依存関係の古さなど）を記載してください
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 🔧 対応内容
+      description: 具体的に何を行うか記載してください
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: 🏁 完了条件
+      description: どの状態になれば完了とみなすか記載してください
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: ⚠️ 影響範囲・リスク
+      description: 既存機能への影響、破壊的変更の有無などがあれば記載してください
+    validations:
+      required: false
+  - type: textarea
+    id: additional
+    attributes:
+      label: 📎 補足
+      description: 参考リンク、関連 issue などがあれば記載してください
+    validations:
+      required: false

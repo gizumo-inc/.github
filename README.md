@@ -51,6 +51,46 @@ GitHub は各ファイルを次の順で探索します。どこに置いても�
 
 つまりこのリポジトリのテンプレートを変更しても、独自テンプレートを持つリポジトリには反映されません。「変更したのに反映されない」ときは、まず対象リポジトリに同名ファイルがないか確認してください。
 
+### ラベルは継承されない
+
+継承されるのは **ファイル** だけです。ラベルはリポジトリごとに管理されており、このリポジトリから配布することはできません。
+
+issue テンプレートには起票時に自動付与するラベルを指定していますが、**指定したラベルが対象リポジトリに存在しない場合、そのラベルは付与されません**（GitHub はラベルを自動作成しません）。
+
+| テンプレート | 指定ラベル | 備考 |
+| --- | --- | --- |
+| 機能要望 | `enhancement` | GitHub がリポジトリ作成時に自動生成するラベル |
+| バグ報告 | `bug` | 同上 |
+| 質問 | `question` | 同上 |
+| 開発タスク | `chore` | **デフォルトには存在しないため、リポジトリごとに作成が必要** |
+
+`chore` ラベルが必要なリポジトリでは、次のいずれかの方法で作成してください。設定する値はどちらの方法でも同じです。
+
+| 項目 | 設定する値 |
+| --- | --- |
+| Label name | `chore` |
+| Description | `Refactoring, dependency updates, and other maintenance` |
+| Color | `#ededed` |
+
+#### ブラウザで作成する場合
+
+1. 対象リポジトリの **Issues** タブを開く
+2. 検索ボックス右の **Labels** ボタンを押す（URL を直接開く場合は `https://github.com/gizumo-inc/<リポジトリ名>/labels`）
+3. 右上の **New label** ボタンを押す
+4. 上表の値を入力する
+   - Color 欄は初期状態でランダムな色が入っています。欄をクリックして `#ededed` を直接入力してください
+   - 色の指定は必須ではありません。組織内で見分けやすさを揃えたいため、上記の値を推奨しています
+5. **Create label** ボタンを押す
+
+#### `gh` コマンドで作成する場合
+
+```sh
+gh label create chore --description "Refactoring, dependency updates, and other maintenance" --color ededed
+```
+
+> [!NOTE]
+> `gh` コマンドでは Color に `#` を付けません。ブラウザの入力欄では `#` 付きで入力します。
+
 ### Private にはできない
 
 GitHub の仕様上、[Private な `.github` リポジトリはサポートされていません](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)。Private にすると継承そのものが機能しなくなります。
